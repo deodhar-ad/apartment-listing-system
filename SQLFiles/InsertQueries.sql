@@ -93,6 +93,21 @@ VALUES
 INSERT INTO [Message] (Customer_ID, Lister_ID, Subject, Content) VALUES (1, 2, 'Regarding Property Inquiry', 'I am interested in renting the property listed by you.');
 INSERT INTO [Message] (Customer_ID, Lister_ID, Subject, Content) VALUES (3, 4, 'Property Inquiry', 'I am interested in buying this property.');
 
+INSERT INTO [Message] (Customer_ID, Lister_ID, Subject, Content) 
+VALUES 
+-- Rent Inquires
+(5, 6, 'Inquiry about rental property', 'I would like more information about the rental property you have listed.'), 
+(7, 6, 'Interested in renting', 'I am interested in renting my property and would like to discuss further details.'), 
+(9, 10, 'Rental property availability', 'Is the rental property still available?'), 
+(11, 14, 'Property viewing request', 'Can I schedule a viewing for the property you listed?'), 
+(13, 14, 'Inquiry about rental terms', 'What are the terms for renting the property?'), 
+-- Sell Inquiries
+(19, 8, 'Offer for selling property', 'I would like to make an offer for your property.'), 
+(19, 12, 'Buying property location', 'Is the selling property located in a safe neighborhood?'), 
+(19, 16, 'Property price negotiation', 'Are you open to negotiating the price for the property?'), 
+(21, 28, 'Selling property inquiry', 'Can you provide more details about the property you have listed for sale?'), 
+(23, 24, 'Selling property amenities', 'What amenities are included with the selling property?');
+
 -- Inserting into Property table
 INSERT INTO Property (Lister_ID, Address_Line_1, Address_Line_2, City, State, Country, Zipcode) VALUES (2, '123 Main St', '', 'New York', 'NY', 'USA', 10001);
 INSERT INTO Property (Lister_ID, Address_Line_1, Address_Line_2, City, State, Country, Zipcode) VALUES (4, '456 Oak St', 'Apt 3B', 'Los Angeles', 'CA', 'USA', 90001);
