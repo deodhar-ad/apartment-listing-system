@@ -71,3 +71,38 @@ RETURN (
 
 SELECT * FROM dbo.GetTopRatedListers(5);
 
+
+
+-- UDF that calculates the total cost of renting a property for a given duration, taking into account the monthly rent, move-in cost, and security deposit.
+--This UDF will take three parameters: Rent_ID (identifying the rental), DurationInMonths (the duration of the rental), and MoveInDate (the date when the rental begins).
+CREATE FUNCTION CalculateTotalRentCost (
+    @RentID INTEGER,
+    @DurationInMonths INTEGER,
+    @MoveInDate DATETIME
+)
+RETURNS DECIMAL(10, 2)
+AS
+BEGIN
+    DECLARE @TotalCost DECIMAL(10, 2);
+    SELECT @TotalCost =
+        (RT.Monthly_Rent * @DurationInMonths) +
+        R.Move_In_Cost +
+        R.Security_Deposit
+    FROM Rent_Transaction RT
+	join Rent R on RT.Rent_ID = R.Rent_ID
+    WHERE RT.Rent_ID = @RentID
+    AND RT.Transaction_Date = (
+        SELECT MAX(Transaction_Date)
+        FROM Rent_Transaction
+        WHERE Rent_ID = @RentID
+        AND Transaction_Date <= @MoveInDate
+    );
+    RETURN @TotalCost;
+END;
+
+DECLARE @RentID INTEGER = 1; -- Provide the Rent ID
+DECLARE @DurationInMonths INTEGER = 6; -- Duration in months
+DECLARE @MoveInDate DATETIME = '2024-04-01'; -- Move in date
+ 
+SELECT dbo.CalculateTotalRentCost(@RentID, @DurationInMonths, @MoveInDate) AS TotalCost;
+
