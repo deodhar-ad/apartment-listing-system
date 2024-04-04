@@ -106,3 +106,39 @@ DECLARE @MoveInDate DATETIME = '2024-04-01'; -- Move in date
  
 SELECT dbo.CalculateTotalRentCost(@RentID, @DurationInMonths, @MoveInDate) AS TotalCost;
 
+
+-- UDF Computed Column functions
+
+
+
+--Computed Column for Lister Activity Status
+--UDF to determine the activity status of a Lister based on their number of active properties:
+-- Created a UDF to determine Lister activity status
+CREATE FUNCTION DetermineListerActivityStatus
+(
+    @ListerID INT
+)
+RETURNS NVARCHAR(50)
+AS
+BEGIN
+    DECLARE @ActivityStatus NVARCHAR(50);
+
+    SELECT @ActivityStatus = 
+        CASE 
+            WHEN Active_Properties > 0 THEN 'Active'
+            ELSE 'Inactive'
+        END
+    FROM Lister
+    WHERE Lister_ID = @ListerID;
+
+    RETURN @ActivityStatus;
+END;
+GO
+
+-- Add a computed column to the Lister table for Activity_Status
+ALTER TABLE Lister
+ADD Activity_Status AS dbo.DetermineListerActivityStatus(Lister_ID);
+GO
+
+
+
