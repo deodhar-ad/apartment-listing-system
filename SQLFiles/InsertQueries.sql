@@ -43,6 +43,97 @@ VALUES
 ('Kate', 'Harris', 2223334444, 'kate.harris@example.com', '1976-06-11', 'L'),
 ('Vars', 'Hall', 7778889999, 'Vars.hall@example.com', '1988-02-14', 'C'),
 ('Vineeth', 'Adams', 1112223333, 'Vineeth.adams@example.com', '1992-04-17', 'L');
+
+--new User inserts
+
+INSERT INTO [User] (First_Name, Last_Name, Phone_No, Email, Date_Of_Birth, User_Type)
+VALUES
+('Gabriel', 'Parker', 1112223330, 'gabriel.parker@example.com', '1984-09-30', 'C'),
+('Natalie', 'Gonzalez', 5556663330, 'natalie.gonzalez@example.com', '1997-12-12', 'L'),
+('Henry', 'Martinez', 7778883330, 'henry.martinez@example.com', '1986-03-25', 'C'),
+('Ella', 'Cooper', 2223339999, 'ella.cooper@example.com', '1990-07-08', 'L'),
+('Jackson', 'Flores', 8889990001, 'jackson.flores@example.com', '1979-05-18', 'C'),
+('Luna', 'Rivera', 3334441111, 'luna.rivera@example.com', '1983-10-21', 'L'),
+('Logan', 'Sanchez', 6667775555, 'logan.sanchez@example.com', '1994-01-14', 'C'),
+('Layla', 'Ward', 5556669999, 'layla.ward@example.com', '1977-04-04', 'L'),
+('Elijah', 'Foster', 7778886666, 'elijah.foster@example.com', '1992-08-27', 'C'),
+('Grace', 'Morales', 1112224444, 'grace.morales@example.com', '1985-11-09', 'L'),
+('Lucas', 'Nguyen', 2223337777, 'lucas.nguyen@example.com', '1973-01-31', 'C'),
+('Ava', 'Kim', 8889992222, 'ava.kim@example.com', '1998-06-22', 'L'),
+('Aiden', 'Russell', 3334448888, 'aiden.russell@example.com', '1978-08-15', 'C'),
+('Zoe', 'Chavez', 6667772222, 'zoe.chavez@example.com', '1993-02-28', 'L'),
+('Mason', 'Perez', 5556666666, 'mason.perez@example.com', '1980-12-01', 'C'),
+('Leah', 'Nguyen', 2223335555, 'leah.nguyen@example.com', '1974-07-26', 'L'),
+('Oliver', 'Romero', 7778888888, 'oliver.romero@example.com', '1989-04-19', 'C'),
+('Harper', 'Lee', 1112229999, 'harper.lee@example.com', '1987-10-12', 'L'),
+('Evelyn', 'Gutierrez', 8889994444, 'evelyn.gutierrez@example.com', '1995-03-05', 'C'),
+('Wyatt', 'Hernandez', 3334446666, 'wyatt.hernandez@example.com', '1976-02-18', 'L'),
+('Aria', 'Garcia', 6667779999, 'aria.garcia@example.com', '1991-06-03', 'C'),
+('Jack', 'Collins', 5556663333, 'jack.collins@example.com', '1984-08-26', 'L'),
+('Sophie', 'Diaz', 2223338888, 'sophie.diaz@example.com', '1996-11-29', 'C'),
+('Owen', 'Lopez', 7778886666, 'owen.lopez@example.com', '1981-07-17', 'L'),
+('Eleanor', 'Reyes', 1112225555, 'eleanor.reyes@example.com', '1978-03-23', 'C'),
+('Grayson', 'Ramirez', 8889991111, 'grayson.ramirez@example.com', '1994-10-16', 'L'),
+('Maya', 'Evans', 3334447777, 'maya.evans@example.com', '1989-09-28', 'C'),
+('Levi', 'Stewart', 6667772222, 'levi.stewart@example.com', '1997-12-11', 'L'),
+('Scarlett', 'Flores', 5556664444, 'scarlett.flores@example.com', '1982-05-07', 'C'),
+('Lincoln', 'Mitchell', 2223336666, 'lincoln.mitchell@example.com', '1971-08-20', 'L'),
+('Victoria', 'Gomez', 7778882222, 'victoria.gomez@example.com', '1990-12-25', 'C'),
+('Nolan', 'Moreno', 1112227777, 'nolan.moreno@example.com', '1983-09-14', 'L'),
+('Stella', 'Sanchez', 8889993333, 'stella.sanchez@example.com', '1998-02-07', 'C'),
+('Theodore', 'Chen', 3334442222, 'theodore.chen@example.com', '1975-04-28', 'L'),
+('Piper', 'Rivera', 6667775555, 'piper.rivera@example.com', '1992-01-19', 'C'),
+('Zachary', 'Nguyen', 5556668888, 'zachary.nguyen@example.com', '1987-11-02', 'L'),
+('Hazel', 'Chang', 2223337777, 'hazel.chang@example.com', '1979-06-15', 'C'),
+('Carter', 'Kim', 7778883333, 'carter.kim@example.com', '1994-03-18', 'L'),
+('Madeline', 'Gutierrez', 1112226666, 'madeline.gutierrez@example.com', '1980-10-31', 'C'),
+('Leo', 'Choi', 8889995555, 'leo.choi@example.com', '1996-05-24', 'L'),
+('Nova', 'Martinez', 3334449999, 'nova.martinez@example.com', '1977-12-07', 'C'),
+('Axel', 'Alvarez', 6667774444, 'axel.alvarez@example.com', '1993-07-20', 'L'),
+('Clara', 'Gonzales', 5556661111, 'clara.gonzales@example.com', '1981-09-03', 'C'),
+('Eli', 'Reyes', 2223339999, 'eli.reyes@example.com', '1995-12-26', 'L'),
+('Willow', 'Luna', 7778885555, 'willow.luna@example.com', '1999-01-01', 'C'),
+('Eva', 'Hernandez', 1112227777, 'eva.hernandez@example.com', '1988-04-20', 'L'),
+('Damian', 'Diaz', 5556664444, 'damian.diaz@example.com', '1973-07-09', 'C'),
+('Gabriella', 'Torres', 8889996666, 'gabriella.torres@example.com', '1997-10-10', 'L'),
+('Colton', 'Reyes', 3334441111, 'colton.reyes@example.com', '1976-09-05', 'C'),
+('Mila', 'Lopez', 6667778888, 'mila.lopez@example.com', '1991-03-28', 'L'),
+('Brody', 'Garcia', 5556665555, 'brody.garcia@example.com', '1984-11-30', 'C'),
+('Clara', 'Flores', 2223334444, 'clara.flores@example.com', '1995-02-15', 'L'),
+('Micah', 'Nguyen', 7778887777, 'micah.nguyen@example.com', '1981-12-18', 'C'),
+('Rylee', 'Chang', 1112223333, 'rylee.chang@example.com', '1977-05-11', 'L'),
+('Emmett', 'Martinez', 8889992222, 'emmett.martinez@example.com', '1994-08-24', 'C'),
+('Juliana', 'Choi', 3334445555, 'juliana.choi@example.com', '1989-10-03', 'L'),
+('Parker', 'Gomez', 6667773333, 'parker.gomez@example.com', '1993-04-26', 'C'),
+('Gemma', 'Kim', 5556669999, 'gemma.kim@example.com', '1986-06-19', 'L'),
+('Bennett', 'Nguyen', 2223338888, 'bennett.nguyen@example.com', '1979-09-22', 'C'),
+('Elise', 'Chang', 7778884444, 'elise.chang@example.com', '1995-01-13', 'L'),
+('Ronan', 'Lopez', 1112224444, 'ronan.lopez@example.com', '1982-02-06', 'C'),
+('Isla', 'Garcia', 8889997777, 'isla.garcia@example.com', '1996-07-29', 'L'),
+('Caleb', 'Ramirez', 3334446666, 'caleb.ramirez@example.com', '1974-04-12', 'C'),
+('Lyla', 'Martinez', 6667772222, 'lyla.martinez@example.com', '1990-11-05', 'L'),
+('Silas', 'Nguyen', 5556667777, 'silas.nguyen@example.com', '1985-01-25', 'C'),
+('Genevieve', 'Romero', 2223336666, 'genevieve.romero@example.com', '1972-04-08', 'L'),
+('Weston', 'Gomez', 7778889999, 'weston.gomez@example.com', '1989-07-02', 'C'),
+('Amara', 'Moreno', 1112227777, 'amara.moreno@example.com', '1983-08-15', 'L'),
+('Eliana', 'Chavez', 8889995555, 'eliana.chavez@example.com', '1995-11-28', 'C'),
+('Joel', 'Nguyen', 3334449999, 'joel.nguyen@example.com', '1978-10-21', 'L'),
+('Daisy', 'Choi', 6667774444, 'daisy.choi@example.com', '1992-12-14', 'C'),
+('Rhett', 'Gonzalez', 5556661111, 'rhett.gonzalez@example.com', '1987-02-07', 'L'),
+('Lola', 'Alvarez', 2223339999, 'lola.alvarez@example.com', '1979-03-01', 'C'),
+('Emerson', 'Garcia', 7778883333, 'emerson.garcia@example.com', '1994-06-24', 'L'),
+('Kai', 'Martinez', 1112226666, 'kai.martinez@example.com', '1980-11-17', 'C'),
+('Rory', 'Hernandez', 8889996666, 'rory.hernandez@example.com', '1996-04-10', 'L'),
+('Nina', 'Nguyen', 3334441111, 'nina.nguyen@example.com', '1975-07-03', 'C'),
+('Beckett', 'Gomez', 6667778888, 'beckett.gomez@example.com', '1991-12-26', 'L'),
+('Aurora', 'Lopez', 5556664444, 'aurora.lopez@example.com', '1983-04-19', 'C'),
+('Kaden', 'Chang', 2223337777, 'kaden.chang@example.com', '1995-07-12', 'L'),
+('Daniela', 'Kim', 7778886666, 'daniela.kim@example.com', '1980-10-05', 'C'),
+('Finn', 'Ramirez', 1112225555, 'finn.ramirez@example.com', '1985-12-28', 'L');
+
+
+
+
  
  
 -- Inserting into Lister table
@@ -68,6 +159,51 @@ VALUES
 (36, 'O', 1),
 (38, 'B', 4),
 (40, 'O', 1);
+
+--New Inserts for Lister
+INSERT INTO Lister (Lister_ID, Lister_Type, Active_Properties) 
+VALUES 
+(42, 'B', 3),
+(44, 'O', 2),
+(46, 'B', 0),
+(48, 'O', 3),
+(50, 'B', 4),
+(52, 'O', 0),
+(54, 'B', 3),
+(56, 'O', 4),
+(58, 'B', 2),
+(60, 'O', 1),
+(62, 'B', 4),
+(64, 'O', 3),
+(66, 'B', 1),
+(68, 'O', 0),
+(70, 'B', 3),
+(72, 'O', 4),
+(74, 'B', 2),
+(76, 'O', 0),
+(78, 'B', 3),
+(80, 'O', 2),
+(82, 'B', 3),
+(84, 'O', 1),
+(86, 'B', 4),
+(88, 'O', 6),
+(90, 'B', 0),
+(92, 'O', 4),
+(94, 'B', 6),
+(96, 'O', 3),
+(98, 'B', 4),
+(100, 'O', 3),
+(102, 'B', 4),
+(104, 'O', 3),
+(106, 'B', 1),
+(108, 'O', 4),
+(110, 'B', 0),
+(112, 'O', 0),
+(114, 'B', 2),
+(116, 'O', 0),
+(118, 'B', 3),
+(120, 'O', 2);
+
  
  
 -- Inserting into Customer table
@@ -93,6 +229,59 @@ VALUES
 (29, 'Sell', 300000, 350000, 'Boston'),
 (31, 'Sell', NULL, NULL, NULL),
 (33, 'Sell', 200000, 300000, 'Boston');
+
+
+--new 20 records with Customer_Type 'Rent'
+INSERT INTO Customer (Customer_ID, Customer_Type, Budget_Min, Budget_Max, Preferred_Location)
+VALUES
+(37, 'Rent', 900, 1600, 'Los Angeles'),
+(39, 'Rent', NULL, NULL, NULL),
+(41, 'Rent', 1200, 2000, 'San Francisco'),
+(43, 'Rent', 1500, 2200, 'Seattle'),
+(45, 'Rent', NULL, NULL, NULL),
+(47, 'Rent', 800, 1200, 'Chicago'),
+(49, 'Rent', NULL, NULL, NULL),
+(51, 'Rent', 1300, 1800, 'Atlanta'),
+(53, 'Rent', 1000, 1500, 'Houston'),
+(55, 'Rent', NULL, 2500, 'Philadelphia'),
+(57, 'Rent', 1100, 1700, 'New York'),
+(59, 'Rent', 1400, 2000, 'Los Angeles'),
+(61, 'Rent', NULL, NULL, NULL),
+(63, 'Rent', 900, 1300, 'Chicago'),
+(65, 'Rent', 1600, 2200, 'San Francisco'),
+(67, 'Rent', 1200, 1800, 'Boston'),
+(69, 'Rent', NULL, NULL, NULL),
+(71, 'Rent', 1000, 1600, 'Miami'),
+(73, 'Rent', 1300, 1900, 'Seattle'),
+(75, 'Rent', NULL, NULL, NULL),
+(77, 'Rent', 1100, 1700, 'New York');
+
+-- 20 more records with Customer_Type 'Sell'
+INSERT INTO Customer (Customer_ID, Customer_Type, Budget_Min, Budget_Max, Preferred_Location)
+VALUES
+(79, 'Sell', 180000, 250000, 'New York'),
+(81, 'Sell', 250000, 350000, 'Los Angeles'),
+(83, 'Sell', NULL, NULL, NULL),
+(85, 'Sell', 150000, 220000, 'Chicago'),
+(87, 'Sell', 200000, 280000, 'San Francisco'),
+(89, 'Sell', 300000, 400000, 'Boston'),
+(91, 'Sell', NULL, NULL, NULL),
+(93, 'Sell', 220000, 300000, 'Miami'),
+(95, 'Sell', 280000, 350000, 'Seattle'),
+(97, 'Sell', NULL, NULL, NULL),
+(99, 'Sell', 200000, 300000, 'Los Angeles'),
+(101, 'Sell', 150000, 220000, 'Chicago'),
+(103, 'Sell', 250000, 350000, 'Seattle'),
+(105, 'Sell', NULL, NULL, NULL),
+(107, 'Sell', 180000, 250000, 'New York'),
+(109, 'Sell', 200000, 280000, 'San Francisco'),
+(111, 'Sell', 300000, 400000, 'Boston'),
+(113, 'Sell', NULL, NULL, NULL),
+(115, 'Sell', 220000, 300000, 'Miami'),
+(117, 'Sell', 280000, 350000, 'Seattle');
+
+
+
  
 -- Inserting into Message table
 INSERT INTO [Message] (Customer_ID, Lister_ID, Subject, Content) VALUES (1, 2, 'Regarding Property Inquiry', 'I am interested in renting the property listed by you.');
@@ -111,6 +300,38 @@ VALUES
 (19, 16, 'Property price negotiation', 'Are you open to negotiating the price for the property?'),
 (21, 28, 'Selling property inquiry', 'Can you provide more details about the property you have listed for sale?'),
 (23, 24, 'Selling property amenities', 'What amenities are included with the selling property?');
+
+
+--new inserts for message
+
+-- Rent Inquiries
+INSERT INTO [Message] (Customer_ID, Lister_ID, Subject, Content)
+VALUES
+(25, 32, 'Rental property availability', 'Is the rental property still available for lease?'),
+(27, 32, 'Interest in renting property', 'I am interested in renting the property you have listed.'),
+(29, 38, 'Inquiry about rental terms', 'Could you please provide details about the rental terms?'),
+(31, 38, 'Property viewing request', 'Can I schedule a viewing for the rental property?'),
+(33, 42, 'Questions about rental property', 'I have some questions regarding the rental property.'),
+(35, 44, 'Interested in renting property', 'I would like to know more about the rental property you have listed.'),
+(37, 48, 'Rental property inquiry', 'Is the rental property pet-friendly?'),
+(39, 48, 'Rental property viewing', 'Can I arrange a viewing for the rental property?'),
+(41, 52, 'Inquiry about rental terms', 'What are the lease terms for the rental property?'),
+(43, 52, 'Property availability query', 'Is the rental property still available for rent?'),
+
+-- Sell Inquiries
+(45, 58, 'Offer for property purchase', 'I am interested in making an offer to purchase your property.'),
+(47, 58, 'Buying property inquiry', 'Could you provide more information about the property you are selling?'),
+(49, 62, 'Property price negotiation', 'Are you open to negotiating the selling price for the property?'),
+(51, 62, 'Selling property details', 'Can you please share more details about the property listed for sale?'),
+(53, 66, 'Interest in purchasing property', 'I am interested in buying the property you have listed for sale.'),
+(55, 66, 'Property amenities inquiry', 'What amenities are included with the property you are selling?'),
+(57, 70, 'Property viewing request', 'Can I schedule a viewing for the property you have listed for sale?'),
+(59, 70, 'Offer for buying property', 'I would like to make an offer to purchase the property.'),
+(61, 74, 'Buying property location', 'Is the property located in a good school district?'),
+(63, 74, 'Inquiry about property details', 'Could you provide more information about the property for sale?');
+
+
+
  
 -- Inserting into Property table
 INSERT INTO Property (Lister_ID, Address_Line_1, Address_Line_2, City, State, Country, Zipcode) VALUES (2, '123 Main St', '', 'New York', 'NY', 'USA', 10001);
