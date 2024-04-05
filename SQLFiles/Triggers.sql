@@ -1,3 +1,6 @@
+USE ApartmentListingSystem;
+GO
+
 -- 1. Trigger that automatically updates the Active_Properties column in the Lister table whenever 
 --    a new property is inserted or deleted in the Property table by that Lister_ID.
 CREATE TRIGGER UpdateActiveProperties
@@ -27,32 +30,7 @@ BEGIN
 
 END;
 
--- 2. Trigger to validate phone number is of 10 digits.
-CREATE TRIGGER PhoneValidationTrigger
-ON [User]
-AFTER INSERT, UPDATE
-AS
-BEGIN
-    DECLARE @PhoneNumber BIGINT;
-    DECLARE @ErrorMessage NVARCHAR(200);
-
-    -- Check the inserted or updated phone number
-    SELECT @PhoneNumber = Phone_No FROM inserted;
-
-    -- Validate the phone number length
-    IF LEN(CONVERT(NVARCHAR(20), @PhoneNumber)) != 10
-    BEGIN
-        SET @ErrorMessage = 'Phone number must be exactly 10 digits long.';
-        RAISERROR(@ErrorMessage, 16, 1);
-        ROLLBACK TRANSACTION;
-        RETURN;
-    END
-END;
-
--- 3. Trigger to validate Address entered is Unique
--- However, enforcing uniqueness on an address field might be tricky, as multiple properties can have the same address but differ in other attributes (like apartment number or city).
-
--- 4. Trigger to check Property Availability
+-- 2. Trigger to check Property Availability
 
 CREATE TRIGGER Property_Availability_Check
 ON Listing

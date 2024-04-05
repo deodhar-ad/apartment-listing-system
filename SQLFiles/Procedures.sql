@@ -1,3 +1,6 @@
+USE ApartmentListingSystem;
+GO
+
 -- GetCustomerTransactions - This procedure retrieves rent or sell transactions for a given customer. It first 
 -- fetches transactions accordingly for rent or sell based on the determined customer type. 
 -- If the customer is not found or an invalid customer type is provided, it raises an error.
@@ -56,6 +59,9 @@ END;
 -- Demonstartion of stored procedure GetCustomerTransactions
 EXEC GetCustomerTransactions 13;
 EXEC GetCustomerTransactions 3;
+EXEC GetCustomerTransactions 25;
+EXEC GetCustomerTransactions 43;
+
 
 
 -- GetPropertyListings - This stored procedure retrieves a list of property listings based on the provided criteria such as 
@@ -156,5 +162,6 @@ BEGIN
 END;
 
 -- Demonstartion of stored procedure GetPropertyListings
-EXEC GetListerPropertiesWithDetails 2;
+EXEC GetListerPropertiesWithDetails 12;
 EXEC GetListerPropertiesWithDetails 4;
+EXEC GetListerPropertiesWithDetails 6;

@@ -1,4 +1,4 @@
-USE ApartmentFinder;
+USE ApartmentListingSystem;
 GO
 
 -- GetListerPropertyStats returns a table with various statistics related to the properties listed by a specific lister. 
@@ -69,7 +69,7 @@ RETURN (
     ORDER BY Average_Rating DESC, Total_Active_Properties DESC
 );
 
-SELECT * FROM dbo.GetTopRatedListers(5);
+SELECT * FROM dbo.GetTopRatedListers(12);
 
 
 

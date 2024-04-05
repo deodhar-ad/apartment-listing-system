@@ -1,7 +1,7 @@
-CREATE DATABASE ApartmentFinder;
+CREATE DATABASE ApartmentListingSystem;
 GO
 
-USE ApartmentFinder;
+USE ApartmentListingSystem;
 GO
 
 CREATE TABLE [User] ( 

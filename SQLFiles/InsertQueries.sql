@@ -1,5 +1,6 @@
-Use ApartmentFinder;
+Use ApartmentListingSystem;
 Go
+
 -- Inserting into [User] table
 INSERT INTO [User] (First_Name, Last_Name, Phone_No, Email, Date_Of_Birth, User_Type) VALUES ('John', 'Doe', 1234567890, 'john.doe@example.com', '1990-01-01', 'C');
 INSERT INTO [User] (First_Name, Last_Name, Phone_No, Email, Date_Of_Birth, User_Type) VALUES ('Jane', 'Smith', 9876543210, 'jane.smith@example.com', '1995-05-15', 'L');
@@ -45,7 +46,6 @@ VALUES
 ('Vineeth', 'Adams', 1112223333, 'Vineeth.adams@example.com', '1992-04-17', 'L');
 
 --new User inserts
-
 INSERT INTO [User] (First_Name, Last_Name, Phone_No, Email, Date_Of_Birth, User_Type)
 VALUES
 ('Gabriel', 'Parker', 1112223330, 'gabriel.parker@example.com', '1984-09-30', 'C'),
@@ -132,10 +132,6 @@ VALUES
 ('Finn', 'Ramirez', 1112225555, 'finn.ramirez@example.com', '1985-12-28', 'L');
 
 
-
-
- 
- 
 -- Inserting into Lister table
 INSERT INTO Lister (Lister_ID, Lister_Type, Active_Properties) VALUES (2, 'B', 5);
 INSERT INTO Lister (Lister_ID, Lister_Type, Active_Properties) VALUES (4, 'O', 3);
@@ -204,7 +200,6 @@ VALUES
 (118, 'B', 3),
 (120, 'O', 2);
 
- 
  
 -- Inserting into Customer table
 INSERT INTO Customer (Customer_ID, Customer_Type, Budget_Min, Budget_Max, Preferred_Location) VALUES (1, 'Rent', 1000, 2000, 'Downtown');
@@ -281,8 +276,6 @@ VALUES
 (117, 'Sell', 280000, 350000, 'Seattle');
 
 
-
- 
 -- Inserting into Message table
 INSERT INTO [Message] (Customer_ID, Lister_ID, Subject, Content) VALUES (1, 2, 'Regarding Property Inquiry', 'I am interested in renting the property listed by you.');
 INSERT INTO [Message] (Customer_ID, Lister_ID, Subject, Content) VALUES (3, 4, 'Property Inquiry', 'I am interested in buying this property.');
@@ -303,7 +296,6 @@ VALUES
 
 
 --new inserts for message
-
 -- Rent Inquiries
 INSERT INTO [Message] (Customer_ID, Lister_ID, Subject, Content)
 VALUES
@@ -317,7 +309,6 @@ VALUES
 (39, 48, 'Rental property viewing', 'Can I arrange a viewing for the rental property?'),
 (41, 52, 'Inquiry about rental terms', 'What are the lease terms for the rental property?'),
 (43, 52, 'Property availability query', 'Is the rental property still available for rent?'),
-
 -- Sell Inquiries
 (45, 58, 'Offer for property purchase', 'I am interested in making an offer to purchase your property.'),
 (47, 58, 'Buying property inquiry', 'Could you provide more information about the property you are selling?'),
@@ -329,8 +320,6 @@ VALUES
 (59, 70, 'Offer for buying property', 'I would like to make an offer to purchase the property.'),
 (61, 74, 'Buying property location', 'Is the property located in a good school district?'),
 (63, 74, 'Inquiry about property details', 'Could you provide more information about the property for sale?');
-
-
 
  
 -- Inserting into Property table
@@ -379,6 +368,27 @@ INSERT INTO Property (Lister_ID, Address_Line_1, Address_Line_2, City, State, Co
 (76, '3839 Cedar St', 'Apt 10C', 'Nashville', 'TN', 'USA', 37201),
 (78, '3940 Walnut St', 'Suite 601', 'Orlando', 'FL', 'USA', 32801),
 (80, '4041 Pine St', 'Apt 902', 'Washington', 'DC', 'USA', 20001);
+
+INSERT INTO Property (Lister_ID, Address_Line_1, Address_Line_2, City, State, Country, Zipcode)
+VALUES
+-- rent
+    (6, '112 Estrella St', 'Unit 1201', 'New York', 'NY', 'USA', 10002),
+    (6, '456 Elm St', 'Unit 301', 'New York', 'NY', 'USA', 10002),
+    (6, '789 Oak St', 'Suite 401', 'New York', 'NY', 'USA', 10003),
+    (6, '101 Pine St', 'Floor 2', 'New York', 'NY', 'USA', 10004),
+    (6, '222 Maple St', 'Apartment 501', 'New York', 'NY', 'USA', 10005),
+    (10, '333 Cedar St', 'Unit 601', 'New York', 'NY', 'USA', 10006),
+    (10, '444 Birch St', 'Suite 701', 'New York', 'NY', 'USA', 10007),
+    (10, '555 Walnut St', 'Floor 3', 'New York', 'NY', 'USA', 10008),
+    (14, '666 Spruce St', 'Apartment 801', 'New York', 'NY', 'USA', 10009),
+    (14, '777 Ash St', 'Unit 901', 'New York', 'NY', 'USA', 10010),
+    (18, '333 Grape St', 'Unit 1301', 'New York', 'NY', 'USA', 10015),
+    -- sell
+    (4, '888 Pineapple St', 'Unit 1001', 'New York', 'NY', 'USA', 10011),
+    (4, '999 Mango St', 'Suite 1101', 'New York', 'NY', 'USA', 10012),
+    (8, '111 Orange St', 'Floor 4', 'New York', 'NY', 'USA', 10013),
+    (12, '222 Banana St', 'Apartment 1201', 'New York', 'NY', 'USA', 10014);
+
  
 -- Inserting into Property_Detail table
 INSERT INTO Property_Detail (Property_ID, Bedroom, Bathroom, Area_Size, Description) VALUES (1, 2, 1, 1000, 'Cozy apartment in the heart of the city.');
@@ -426,7 +436,25 @@ VALUES
 (38, 2, 2, 1500, 'Modern condo with open floor plan.'),
 (39, 3, 2, 1800, 'Luxurious penthouse with city skyline views.'),
 (40, 2, 2, 2100, 'Spacious condo with modern amenities.');
- 
+
+INSERT INTO Property_Detail (Property_ID, Bedroom, Bathroom, Area_Size, Description)
+VALUES
+    (41, 3, 2, 1000, 'Good apartment with heating system.'),
+    (42, 2, 1, 950, 'Bright apartment with hardwood floors.'),
+    (43, 3, 2, 1400, 'Spacious loft-style apartment in a historic building.'),
+    (44, 1, 1, 700, 'Cozy studio with a view of the city skyline.'),
+    (45, 2, 1, 1100, 'Renovated apartment with modern finishes.'),
+    (46, 3, 2, 1600, 'Beautifully furnished apartment with balcony.'),
+    (47, 2, 1, 900, 'Quaint apartment in a quiet neighborhood.'),
+    (48, 4, 2, 2000, 'Luxurious penthouse with panoramic views.'),
+    (49, 1, 1, 750, 'Compact studio with ample natural light.'),
+    (50, 3, 2, 1800, 'Elegant apartment with high ceilings and skylights.'),
+    (51, 2, 1, 1050, 'Modern apartment with open floor plan.'),
+    (52, 3, 2, 1550, 'Contemporary loft-style living space with exposed brick.'),
+    (53, 2, 1, 950, 'Cozy apartment with views of the river.'),
+    (54, 1, 1, 800, 'Studio apartment with a fully equipped kitchen.'),
+    (55, 3, 2, 1700, 'Sleek and stylish apartment with designer finishes.');
+
  
 -- Inserting into Listing table
 INSERT INTO Listing (Property_ID, Listing_Date, Listing_Status, Listing_Type) VALUES (1, '2024-03-17', 'Active', 'R');
@@ -474,6 +502,24 @@ INSERT INTO Listing (Property_ID, Listing_Date, Listing_Status, Listing_Type) VA
 (39, '2023-09-17', 'Active', 'R'),
 (40, '2023-10-17', 'Inactive', 'S');
 
+INSERT INTO Listing (Property_ID, Listing_Date, Listing_Status, Listing_Type)
+VALUES 
+    (41, '2024-03-01', 'Active', 'R'),
+    (42, '2024-02-15', 'Active', 'R'),
+    (43, '2024-01-10', 'Active', 'R'),
+    (44, '2023-12-05', 'Inactive', 'R'),
+    (45, '2023-11-20', 'Active', 'R'),
+    (46, '2023-10-25', 'Active', 'R'),
+    (47, '2023-09-30', 'Active', 'R'),
+    (48, '2023-08-15', 'Active', 'R'),
+    (49, '2023-07-20', 'Active', 'R'),
+    (50, '2023-06-25', 'Active', 'R'),
+    (51, '2023-05-30', 'Active', 'R'),
+    (52, '2023-04-15', 'Inactive', 'S'),
+    (53, '2023-03-10', 'Active', 'S'),
+    (54, '2023-02-05', 'Inactive', 'S'),
+    (55, '2023-01-01', 'Active', 'S');
+
  
 -- Inserting into Amenity table
 INSERT INTO Amenity (Listing_ID, Water, Gas, Electricity, Parking, Pets_Allowed) VALUES (1, 1, 1, 1, 1, 0);
@@ -490,6 +536,38 @@ VALUES
 (10, 1, 1, 1, 0, 0),
 (11, 1, 0, 0, 1, 1),
 (12, 0, 0, 1, 1, 0);
+
+-- new insertions into the Amenity table
+INSERT INTO Amenity (Listing_ID, Water, Gas, Electricity, Parking, Pets_Allowed)
+VALUES
+(13, 1, 0, 1, 1, 0),
+(14, 1, 1, 0, 1, 1),
+(15, 1, 1, 1, 1, 0),
+(16, 0, 1, 1, 0, 1),
+(17, 1, 0, 1, 1, 0),
+(18, 1, 1, 0, 0, 1),
+(19, 0, 1, 1, 1, 0),
+(20, 1, 0, 1, 0, 1),
+(21, 1, 1, 0, 1, 1),
+(22, 0, 1, 1, 1, 0),
+(23, 1, 0, 1, 0, 1),
+(24, 1, 1, 0, 1, 1),
+(25, 0, 1, 1, 1, 0),
+(26, 1, 0, 1, 0, 1),
+(27, 1, 1, 0, 1, 1),
+(28, 0, 1, 1, 1, 0),
+(29, 1, 0, 1, 0, 1),
+(30, 1, 1, 0, 1, 1),
+(31, 0, 1, 1, 1, 0),
+(32, 1, 0, 1, 0, 1),
+(33, 1, 1, 0, 1, 1),
+(34, 0, 1, 1, 1, 0),
+(35, 1, 0, 1, 0, 1),
+(36, 1, 1, 0, 1, 1),
+(37, 0, 1, 1, 1, 0),
+(38, 1, 0, 1, 0, 1),
+(39, 1, 1, 0, 1, 1);
+
  
 -- Inserting into Rent table
 INSERT INTO Rent (Rent_ID, Move_In_Cost, Security_Deposit, Available_State_Date, Available_End_Date) VALUES (1, 1500, 2000, '2024-04-01', '2025-03-31');
@@ -504,6 +582,35 @@ VALUES
 (15, 2000, 2700, '2024-09-01', '2025-08-31'),
 (17, 2300, 3200, '2024-10-01', '2025-09-30'),
 (19, 2300, 3200, '2023-10-01', '2025-09-30');
+
+-- new insertions into the Rent table
+INSERT INTO Rent (Rent_ID, Move_In_Cost, Security_Deposit, Available_State_Date, Available_End_Date)
+VALUES
+(22, 1800, 2500, '2024-03-01', '2025-02-28'),
+(24, 1600, 2000, '2024-04-01', '2025-03-31'),
+(26, 2000, 2800, '2024-05-01', '2025-04-30'),
+(28, 1900, 2600, '2024-06-01', '2025-05-31'),
+(30, 1700, 2200, '2024-07-01', '2025-06-30'),
+(32, 2200, 3000, '2024-08-01', '2025-07-31'),
+(34, 2000, 2700, '2024-09-01', '2025-08-31'),
+(36, 2300, 3200, '2024-10-01', '2025-09-30'),
+(38, 2300, 3200, '2023-10-01', '2025-09-30'),
+(40, 2400, 3300, '2023-11-01', '2025-10-31');
+
+INSERT INTO Rent (Rent_ID, Move_In_Cost, Security_Deposit, Available_State_Date, Available_End_Date)
+VALUES
+    (41, 1600, 2000, '2024-04-01', '2025-03-31'),
+    (42, 1800, 2500, '2024-03-01', '2025-02-28'),
+    (43, 1600, 2000, '2024-04-01', '2025-03-31'),
+    (44, 1800, 2500, '2024-03-01', '2025-02-28'),
+    (45, 1600, 2000, '2024-04-01', '2025-03-31'),
+    (46, 1800, 2500, '2024-03-01', '2025-02-28'),
+    (47, 1600, 2000, '2024-04-01', '2025-03-31'),
+    (48, 1800, 2500, '2024-03-01', '2025-02-28'),
+    (49, 1600, 2000, '2024-04-01', '2025-03-31'),
+    (50, 1800, 2500, '2024-03-01', '2025-02-28');
+
+
 -- Inserting into Sell table
 INSERT INTO Sell (Sell_ID, Asking_Price, Mortgage_Allowed) VALUES (2, 250000, 1);
 INSERT INTO Sell (Sell_ID, Asking_Price, Mortgage_Allowed)
@@ -518,7 +625,27 @@ VALUES
 (18, 360000, 0),
 (20, 180000, 0);
  
- 
+-- new insertions into the Sell table
+INSERT INTO Sell (Sell_ID, Asking_Price, Mortgage_Allowed)
+VALUES
+(21, 280000, 1),
+(23, 320000, 0),
+(25, 300000, 1),
+(27, 350000, 1),
+(29, 270000, 0),
+(31, 330000, 1),
+(33, 290000, 1),
+(35, 360000, 0),
+(37, 180000, 0),
+(39, 400000, 1);
+
+INSERT INTO Sell (Sell_ID, Asking_Price, Mortgage_Allowed)
+VALUES
+    (51, 280000, 1),
+    (52, 320000, 0),
+    (53, 280000, 1),
+    (54, 320000, 0);
+
 -- Inserting into Sell_Transaction table
 INSERT INTO Sell_Transaction (Sell_ID, Customer_ID, Buying_Price, Transaction_Date, Transaction_Status) VALUES (2, 3, 260000, CURRENT_TIMESTAMP, 'Completed');
 INSERT INTO Sell_Transaction (Sell_ID, Customer_ID, Buying_Price, Transaction_Date, Transaction_Status)
@@ -532,6 +659,21 @@ VALUES
 (16, 17, 310000, '2024-10-15', 'Cancelled'),
 (18, 19, 350000, '2024-11-20', 'Completed'),
 (20, 21, 450000, '2024-11-20', 'Completed');
+
+-- new insertions into the Sell_Transaction table
+INSERT INTO Sell_Transaction (Sell_ID, Customer_ID, Buying_Price, Transaction_Date, Transaction_Status)
+VALUES
+(21, 23, 290000, '2024-04-15', 'Completed'),
+(23, 25, 310000, '2024-05-20', 'Pending'),
+(23, 25, 310000, '2024-05-22', 'Completed'),
+(25, 27, 320000, '2024-06-25', 'Cancelled'),
+(27, 29, 340000, '2024-07-30', 'Completed'),
+(29, 31, 300000, '2024-08-05', 'Pending'),
+(31, 33, 330000, '2024-09-10', 'Completed'),
+(33, 79, 310000, '2024-10-15', 'Cancelled'),
+(33, 79, 310000, '2024-11-20', 'Completed'),
+(37, 81, 450000, '2024-11-20', 'Completed');
+
  
 -- Inserting into Rent_Transaction table
 INSERT INTO Rent_Transaction (Rent_ID, Customer_ID, Monthly_Rent, Transaction_Date, Transaction_Status) VALUES (1, 13, 1500, CURRENT_TIMESTAMP, 'Completed');
@@ -547,7 +689,23 @@ VALUES
 (17, 3, 2350, CURRENT_TIMESTAMP, 'Completed'),
 (19, 11, 2350, CURRENT_TIMESTAMP, 'Completed');
  
- 
+-- new insertions into the Rent_Transaction table
+UPDATE Rent_Transaction SET Customer_ID = 5 Where Rent_Transaction_ID = 9;
+UPDATE Rent_Transaction SET Customer_ID = 7 Where Rent_Transaction_ID = 5;
+UPDATE Rent_Transaction SET Customer_ID = 39 Where Rent_Transaction_ID = 6;
+UPDATE Rent_Transaction SET Customer_ID = 15 Where Rent_Transaction_ID = 3;
+UPDATE Rent_Transaction SET Customer_ID = 35 Where Rent_Transaction_ID = 2;
+
+INSERT INTO Rent_Transaction (Rent_ID, Customer_ID, Monthly_Rent, Transaction_Date, Transaction_Status)
+VALUES
+(22, 41, 1450, '2024-03-10', 'Completed'),
+(24, 43, 1550, '2024-02-15', 'Pending'),
+(24, 43, 1550, '2024-02-20', 'Cancelled'),
+(26, 45, 1650, '2024-01-20', 'Completed'),
+(28, 47, 1750, '2023-12-25', 'Completed'),
+(28, 49, 1850, '2023-11-30', 'Cancelled'),
+(32, 51, 1950, '2023-10-05', 'Completed');
+
  
 -- Inserting into Rent_Legal_Document table
 INSERT INTO Rent_Legal_Document (Rent_Transaction_ID, Agreement_Date, Lease_Start_Date, Lease_End_Date, Terms_And_Condition) VALUES (1, '2024-03-17', '2024-04-01', '2025-03-31', 'Standard lease terms and conditions apply.');
@@ -562,9 +720,19 @@ VALUES
 (8, '2023-03-22', '2023-04-01', '2024-03-31', 'Landlord to provide appliance repairs.'),
 (9, '2024-08-10', '2024-09-01', '2025-08-31', 'Tenant to notify landlord of any maintenance issues.'),
 (10, '2023-02-20', '2024-03-01', '2025-02-28', 'Tenant to provide proof.');
- 
- 
- 
+
+-- new insertions into the Rent_Legal_Document table
+INSERT INTO Rent_Legal_Document (Rent_Transaction_ID, Agreement_Date, Lease_Start_Date, Lease_End_Date, Terms_And_Condition)
+VALUES
+(11, '2023-09-28', '2023-10-01', '2024-09-30', 'Tenant responsible for utilities.'),
+(12, '2024-01-12', '2024-02-15', '2025-02-14', 'No pets allowed on premises.'),
+(13, '2023-11-05', '2023-12-01', '2024-11-30', 'Landlord responsible for lawn maintenance.'),
+(14, '2024-02-20', '2024-03-01', '2025-02-28', 'Tenant to provide proof of renter insurance.'),
+(15, '2023-09-28', '2023-10-01', '2024-09-30', 'Tenant responsible for utilities.'),
+(16, '2024-01-12', '2024-02-15', '2025-02-14', 'No pets allowed on premises.'),
+(17, '2023-11-05', '2023-12-01', '2024-11-30', 'Landlord responsible for lawn maintenance.');
+
+
 -- Inserting into Sell_Legal_Document table
 INSERT INTO Sell_Legal_Document (Sell_Transaction_ID, Agreement_Date, Sale_Deed, Mortgage_Approval, Terms_And_Condition) VALUES (1, '2024-03-17', 'Sale Deed Document', 'Mortgage Approval Document', 'Standard sale terms and conditions apply.');
 INSERT INTO Sell_Legal_Document (Sell_Transaction_ID, Agreement_Date, Sale_Deed, Mortgage_Approval, Terms_And_Condition)
@@ -579,6 +747,20 @@ VALUES
 (9, '2016-06-08', 'Sale Agreement', 'Mortgage Approval Certificate', 'Standard terms and conditions for sale.'),
 (10, '2019-11-25', 'Title Deed', 'Mortgage Approval Document', 'Terms and conditions as per contract.');
  
+-- new insertions into the Sell_Legal_Document table
+INSERT INTO Sell_Legal_Document (Sell_Transaction_ID, Agreement_Date, Sale_Deed, Mortgage_Approval, Terms_And_Condition)
+VALUES
+-- (11, '2023-07-15', 'Property Sale Agreement', 'Mortgage Approval Letter', 'Agreed upon terms and conditions.'),
+(12, '2021-05-20', 'Deed of Sale', 'Mortgage Approval Document', 'Standard sale terms and conditions apply.'),
+(13, '2024-03-11', 'Sale Contract', 'Mortgage Approval Certificate', 'Terms and conditions as per agreement.'),
+(14, '2022-04-05', 'Transfer Deed', 'Mortgage Approval Form', 'Agreed terms and conditions for sale.'),
+(15, '2023-07-15', 'Property Sale Agreement', 'Mortgage Approval Letter', 'Agreed upon terms and conditions.'),
+(16, '2021-05-20', 'Deed of Sale', 'Mortgage Approval Document', 'Standard sale terms and conditions apply.'),
+(17, '2024-03-11', 'Sale Contract', 'Mortgage Approval Certificate', 'Terms and conditions as per agreement.'),
+(18, '2022-04-05', 'Transfer Deed', 'Mortgage Approval Form', 'Agreed terms and conditions for sale.'),
+(19, '2023-07-15', 'Property Sale Agreement', 'Mortgage Approval Letter', 'Agreed upon terms and conditions.'),
+(20, '2021-05-20', 'Deed of Sale', 'Mortgage Approval Document', 'Standard sale terms and conditions apply.');
+
  
 -- Inserting into Review table
 INSERT INTO Review (Lister_ID, Customer_ID, Property_ID, Rating, Comment) VALUES (2, 1, 1, 4.5, 'Great experience renting this property.'),
@@ -593,7 +775,28 @@ INSERT INTO Review (Lister_ID, Customer_ID, Property_ID, Rating, Comment) VALUES
 (20, 19, 10, 4.1, 'Good value for the price, enjoyed my stay.'),
 (22, 21, 11, 4.9, 'Absolutely loved this apartment, perfect for my needs.');
 
+-- new insertions into the Review table
+INSERT INTO Review (Lister_ID, Customer_ID, Property_ID, Rating, Comment)
+VALUES
+-- sell
+(4, 3, 2, 3.8, 'Decent property, but could use some improvements.'),
+(8, 19, 4, 3.5, 'Average experience, nothing exceptional.'),
+(16, 21, 8, 3.2, 'Disappointed with the cleanliness and amenities.'),
+(12, 23, 6, 2.9, 'Below expectations, would not recommend.'),
+(20, 19, 10, 2.7, 'Unpleasant experience, property needs maintenance.'),
+(24, 21, 12, 2.5, 'Terrible property, would not stay again.'),
+(24, 23, 12, 2.3, 'Poorly maintained, not worth the price.'),
+(28, 25, 14, 2.1, 'Dreadful experience, highly disappointed.'),
+-- rent
+(2, 1, 1, 1.9, 'Worst property I have ever stayed at.'),
+(2, 5, 1, 1.7, 'Avoid this property, it was a nightmare.'),
+(6, 1, 3, 1.5, 'Absolutely terrible, do not waste your money.'),
+(10, 7, 5, 1.3, 'Horrible experience, regret renting this property.'),
+(14, 9, 7, 1.1, 'Disgusting conditions, unacceptable.'),
+(18, 11, 9, 0.9, 'Filthy property, the worst I have ever seen.'),
+(18, 17, 9, 0.7, 'Appalling conditions, do not stay here.');
 
+-- Dsiplay all the tables
 SELECT * FROM [User];
 SELECT * FROM Lister;
 SELECT * FROM Customer;
@@ -609,3 +812,5 @@ SELECT * FROM Rent_Transaction;
 SELECT * FROM Rent_Legal_Document;
 SELECT * FROM Sell_Legal_Document;
 SELECT * FROM Review;
+
+select listing_id, listing_type from Listing
