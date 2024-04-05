@@ -356,6 +356,29 @@ VALUES
 (36, '765 Maple St', 'Suite 401', 'Las Vegas', 'NV', 'USA', 89101),
 (38, '1098 Pine St', 'Apt 1003', 'Boston', 'MA', 'USA', 80202),
 (40, '765 Maple St', 'Suite 401', 'Boston', 'MA', 'USA', 89101);
+
+-- new insertions for property table
+INSERT INTO Property (Lister_ID, Address_Line_1, Address_Line_2, City, State, Country, Zipcode) VALUES 
+(42, '2122 Broadway', 'Apt 301', 'New York', 'NY', 'USA', 10001),
+(44, '2223 Pine St', 'Unit 10A', 'Los Angeles', 'CA', 'USA', 90001),
+(46, '2324 Oak St', 'Apt 201', 'San Francisco', 'CA', 'USA', 94103),
+(48, '2425 Elm St', 'Suite 4B', 'Chicago', 'IL', 'USA', 60611),
+(50, '2526 Maple Ave', 'Unit 3C', 'Miami', 'FL', 'USA', 33101),
+(52, '2627 Birch St', 'Apt 2002', 'Seattle', 'WA', 'USA', 98101),
+(54, '2728 Cedar St', 'Unit 8F', 'Boston', 'MA', 'USA', 02108),
+(56, '2829 Walnut St', 'Apt 601', 'Houston', 'TX', 'USA', 77002),
+(58, '2930 Pine St', 'Suite 12G', 'San Diego', 'CA', 'USA', 92101),
+(60, '3031 Maple St', 'Apt 902', 'Philadelphia', 'PA', 'USA', 19103),
+(62, '3132 Elm St', 'Unit 5D', 'Portland', 'OR', 'USA', 97205),
+(64, '3233 Oak St', 'Apt 6B', 'Dallas', 'TX', 'USA', 75201),
+(66, '3334 Birch St', 'Unit 25F', 'Phoenix', 'AZ', 'USA', 85001),
+(68, '3435 Pine St', 'Apt 802', 'Denver', 'CO', 'USA', 80202),
+(70, '3536 Maple St', 'Suite 501', 'Las Vegas', 'NV', 'USA', 89101),
+(72, '3637 Elm St', 'Apt 502', 'New Orleans', 'LA', 'USA', 70112),
+(74, '3738 Oak St', 'Unit 15D', 'Austin', 'TX', 'USA', 78701),
+(76, '3839 Cedar St', 'Apt 10C', 'Nashville', 'TN', 'USA', 37201),
+(78, '3940 Walnut St', 'Suite 601', 'Orlando', 'FL', 'USA', 32801),
+(80, '4041 Pine St', 'Apt 902', 'Washington', 'DC', 'USA', 20001);
  
 -- Inserting into Property_Detail table
 INSERT INTO Property_Detail (Property_ID, Bedroom, Bathroom, Area_Size, Description) VALUES (1, 2, 1, 1000, 'Cozy apartment in the heart of the city.');
@@ -380,6 +403,29 @@ VALUES
 (18, 2, 2, 1500, 'Mid-century modern apartment with open floor plan.'),
 (19, 3, 2, 1800, 'Urban apartment with rooftop access.'),
 (20, 2, 2, 2100, 'Mid-century modern apartment with open floor plan.');
+
+--new insertions into the Property Details table
+INSERT INTO Property_Detail (Property_ID, Bedroom, Bathroom, Area_Size, Description)
+VALUES
+(22, 3, 2, 1500, 'Luxurious house with a spacious backyard.'),
+(23, 2, 1, 1000, 'Cozy loft with skyline views.'),
+(24, 4, 3, 2200, 'Contemporary apartment with scenic balcony.'),
+(25, 3, 2, 1800, 'Renovated condo with a cozy fireplace.'),
+(26, 2, 1, 1200, 'Urban apartment with modern amenities.'),
+(27, 5, 4, 3000, 'Elegant penthouse with panoramic city views.'),
+(28, 3, 2, 1600, 'Chic apartment in a lively neighborhood.'),
+(29, 2, 2, 1400, 'Sleek loft with industrial touches.'),
+(30, 4, 3, 2400, 'Spacious condo with stunning city vistas.'),
+(31, 3, 2, 1700, 'Coastal retreat with oceanfront balcony.'),
+(32, 2, 1, 1100, 'Quaint apartment with a cozy atmosphere.'),
+(33, 4, 3, 2200, 'Modern condo with expansive city views.'),
+(34, 3, 2, 1600, 'Mountain chalet with rustic charm.'),
+(35, 2, 1, 1300, 'Rustic cabin with serene mountain views.'),
+(36, 5, 4, 3200, 'Luxury penthouse with panoramic skyline views.'),
+(37, 3, 2, 1900, 'Chic urban loft with rooftop access.'),
+(38, 2, 2, 1500, 'Modern condo with open floor plan.'),
+(39, 3, 2, 1800, 'Luxurious penthouse with city skyline views.'),
+(40, 2, 2, 2100, 'Spacious condo with modern amenities.');
  
  
 -- Inserting into Listing table
@@ -405,6 +451,29 @@ VALUES
 (18, '2023-03-17', 'Active', 'S'),
 (19, '2023-05-17', 'Active', 'R'),
 (20, '2023-10-17', 'Active', 'S');
+
+-- new insertions into the Listing table
+INSERT INTO Listing (Property_ID, Listing_Date, Listing_Status, Listing_Type) VALUES 
+(22, '2024-09-17', 'Inactive', 'S'),
+(23, '2024-08-17', 'Active', 'R'),
+(24, '2024-11-19', 'Inactive', 'S'),
+(25, '2024-12-15', 'Active', 'R'),
+(26, '2024-07-17', 'Inactive', 'S'),
+(27, '2024-08-27', 'Active', 'R'),
+(28, '2024-09-17', 'Inactive', 'S'),
+(29, '2024-10-17', 'Active', 'R'),
+(30, '2024-12-17', 'Inactive', 'S'),
+(31, '2024-07-17', 'Active', 'R'),
+(32, '2024-10-17', 'Inactive', 'S'),
+(33, '2023-06-27', 'Active', 'R'),
+(34, '2023-08-17', 'Inactive', 'S'),
+(35, '2023-04-17', 'Active', 'R'),
+(36, '2023-10-17', 'Inactive', 'S'),
+(37, '2023-07-17', 'Active', 'R'),
+(38, '2023-08-17', 'Inactive', 'S'),
+(39, '2023-09-17', 'Active', 'R'),
+(40, '2023-10-17', 'Inactive', 'S');
+
  
 -- Inserting into Amenity table
 INSERT INTO Amenity (Listing_ID, Water, Gas, Electricity, Parking, Pets_Allowed) VALUES (1, 1, 1, 1, 1, 0);
