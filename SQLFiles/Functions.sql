@@ -28,11 +28,11 @@ RETURN (
     WHERE p.Lister_ID = @ListerID
 );
 
-SELECT * from GetListerPropertyStats(14);
+SELECT * from GetListerPropertyStats(6);
 
 -- GetFullNameOfUser retrieves the full name of the user associated with the provided user ID by concatenating the 
 -- First_Name and Last_Name columns from the [User] table
-CREATE FUNCTION GetFullNameOfUser(@UserID INTEGER)
+CREATE OR ALTER FUNCTION GetFullNameOfUser(@UserID INTEGER)
 RETURNS VARCHAR(50)
 AS 
 BEGIN 
@@ -72,10 +72,9 @@ RETURN (
 SELECT * FROM dbo.GetTopRatedListers(12);
 
 
-
 -- UDF that calculates the total cost of renting a property for a given duration, taking into account the monthly rent, move-in cost, and security deposit.
 --This UDF will take three parameters: Rent_ID (identifying the rental), DurationInMonths (the duration of the rental), and MoveInDate (the date when the rental begins).
-CREATE FUNCTION CalculateTotalRentCost (
+CREATE OR ALTER FUNCTION CalculateTotalRentCost (
     @RentID INTEGER,
     @DurationInMonths INTEGER,
     @MoveInDate DATETIME
@@ -109,12 +108,10 @@ SELECT dbo.CalculateTotalRentCost(@RentID, @DurationInMonths, @MoveInDate) AS To
 
 -- UDF Computed Column functions
 
-
-
 --Computed Column for Lister Activity Status
 --UDF to determine the activity status of a Lister based on their number of active properties:
 -- Created a UDF to determine Lister activity status
-CREATE FUNCTION DetermineListerActivityStatus
+CREATE OR ALTER FUNCTION DetermineListerActivityStatus
 (
     @ListerID INT
 )
@@ -139,6 +136,4 @@ GO
 ALTER TABLE Lister
 ADD Activity_Status AS dbo.DetermineListerActivityStatus(Lister_ID);
 GO
-
-
 

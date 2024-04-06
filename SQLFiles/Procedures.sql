@@ -63,7 +63,6 @@ EXEC GetCustomerTransactions 25;
 EXEC GetCustomerTransactions 43;
 
 
-
 -- GetPropertyListings - This stored procedure retrieves a list of property listings based on the provided criteria such as 
 -- City, State, and Listing_Type, Budget Range. It returns a result set containing relevant property listings.
 

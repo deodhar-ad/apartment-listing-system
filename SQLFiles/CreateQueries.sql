@@ -12,29 +12,29 @@ CREATE TABLE [User] (
   Email VARCHAR(100) NOT NULL, 
   Date_Of_Birth DATE NOT NULL, 
 --   User types : L (Lister), C (Customer)
-  User_Type CHAR(1) NOT NULL CONSTRAINT
-    User_Type_CHK CHECK (
-        User_Type IN ('L', 'C') 
-    )
+  User_Type CHAR(1) NOT NULL 
+  -- CONSTRAINT User_Type_CHK CHECK (
+  --       User_Type IN ('L', 'C') 
+  --   )
 ); 
 
 CREATE TABLE Lister ( 
   Lister_ID INTEGER PRIMARY KEY,
 --   Lister Type : B (Broker), O (Owner) 
-  Lister_Type CHAR(1) NOT NULL CONSTRAINT
-    Lister_Type_CHK CHECK (
-        Lister_Type IN ('B', 'O')
-    ), 
+  Lister_Type CHAR(1) NOT NULL,
+  -- CONSTRAINT Lister_Type_CHK CHECK (
+  --       Lister_Type IN ('B', 'O')
+  --   ), 
   Active_Properties INTEGER, 
   FOREIGN KEY (Lister_ID) REFERENCES [User](User_ID) 
 ); 
 
 CREATE TABLE Customer ( 
   Customer_ID INTEGER PRIMARY KEY, 
-  Customer_Type CHAR(4) NOT NULL CONSTRAINT
-    Customer_Type_CHK CHECK (
-        Customer_Type IN ('Rent', 'Sell')
-    ), 
+  Customer_Type CHAR(4) NOT NULL,
+  --  CONSTRAINT Customer_Type_CHK CHECK (
+  --       Customer_Type IN ('Rent', 'Sell')
+  --   ), 
   Budget_Min INTEGER, 
   Budget_Max INTEGER, 
   Preferred_Location VARCHAR(30), 
@@ -79,10 +79,10 @@ CREATE TABLE Listing (
   Property_ID INTEGER, 
   Listing_Date DATE NOT NULL, 
   Listing_Status VARCHAR(50) NOT NULL, 
-  Listing_Type CHAR(1) NOT NULL CONSTRAINT
-        Listing_Type_CHK CHECK (
-            Listing_Type IN ('R', 'S') 
-        ), 
+  Listing_Type CHAR(1) NOT NULL,
+  --  CONSTRAINT Listing_Type_CHK CHECK (
+  --           Listing_Type IN ('R', 'S') 
+  --       ), 
   FOREIGN KEY (Property_ID) REFERENCES PROPERTY(Property_ID) 
 ); 
 
@@ -167,3 +167,21 @@ CREATE TABLE Review (
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
     FOREIGN KEY (Property_ID) REFERENCES Property(Property_ID)
 );
+
+-- Check Constraint to ensure user's phone number is of 10 digits
+ALTER TABLE [User] ADD CONSTRAINT CHK_PhoneNumberLength CHECK (LEN(CONVERT(VARCHAR(20), Phone_No)) = 10);
+
+-- Check Constraint to User is of type Lister or Customer
+ALTER TABLE [User] ADD CONSTRAINT User_Type_CHK CHECK ( User_Type IN ('L', 'C') );
+
+-- Check Constraint to Lister is of type Broker or Owner
+ALTER TABLE [Lister] ADD CONSTRAINT Lister_Type_CHK CHECK ( Lister_Type IN ('B', 'O') );
+
+-- Check Constraint to Customer is of type Renter or Buyer
+ALTER TABLE [Customer] ADD CONSTRAINT Customer_Type_CHK CHECK ( Customer_Type IN ('Rent', 'Sell') );
+
+-- Check Constraint to Listing is of type Rent or Sell
+ALTER TABLE [Listing] ADD CONSTRAINT Listing_Type_CHK CHECK ( Listing_Type IN ('R', 'S') );
+
+-- Check Constraint for Rating in Review Table
+ALTER TABLE [Review] ADD CONSTRAINT Rating_Check CHECK (Rating BETWEEN 0 AND 5);
