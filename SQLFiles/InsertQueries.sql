@@ -812,5 +812,3 @@ SELECT * FROM Rent_Transaction;
 SELECT * FROM Rent_Legal_Document;
 SELECT * FROM Sell_Legal_Document;
 SELECT * FROM Review;
-
-select listing_id, listing_type from Listing
