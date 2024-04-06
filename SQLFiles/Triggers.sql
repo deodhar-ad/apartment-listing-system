@@ -31,7 +31,6 @@ BEGIN
 END;
 
 -- 2. Trigger to check Property Availability
-
 CREATE TRIGGER Property_Availability_Check
 ON Listing
 FOR INSERT

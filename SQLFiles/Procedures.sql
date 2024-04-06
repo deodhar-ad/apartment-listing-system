@@ -1,7 +1,7 @@
 USE ApartmentListingSystem;
 GO
 
--- GetCustomerTransactions - This procedure retrieves rent or sell transactions for a given customer. It first 
+-- 1. GetCustomerTransactions - This procedure retrieves rent or sell transactions for a given customer. It first 
 -- fetches transactions accordingly for rent or sell based on the determined customer type. 
 -- If the customer is not found or an invalid customer type is provided, it raises an error.
 CREATE OR ALTER PROCEDURE GetCustomerTransactions
@@ -63,9 +63,8 @@ EXEC GetCustomerTransactions 25;
 EXEC GetCustomerTransactions 43;
 
 
--- GetPropertyListings - This stored procedure retrieves a list of property listings based on the provided criteria such as 
+-- 2. GetPropertyListings - This stored procedure retrieves a list of property listings based on the provided criteria such as 
 -- City, State, and Listing_Type, Budget Range. It returns a result set containing relevant property listings.
-
 CREATE OR ALTER PROCEDURE GetPropertyListings
     @City VARCHAR(100),
     @State VARCHAR(100),
@@ -105,7 +104,7 @@ END;
 EXEC GetPropertyListings 'Boston', 'MA', 'R', 1000, 3000;
 
 
---  GetListerPropertiesWithDetails - This procedure will retrieve all properties listed by a specific Lister along with the details of each property, 
+-- 3. GetListerPropertiesWithDetails - This procedure will retrieve all properties listed by a specific Lister along with the details of each property, 
 -- including the number of bedrooms and bathrooms. Additionally, it will provide the average rating and the number of reviews for each property.
 CREATE OR ALTER PROCEDURE GetListerPropertiesWithDetails
     @ListerID INT
@@ -164,3 +163,23 @@ END;
 EXEC GetListerPropertiesWithDetails 12;
 EXEC GetListerPropertiesWithDetails 4;
 EXEC GetListerPropertiesWithDetails 6;
+
+
+-- 4. GetListingsByDaysAvailable stored procedure retrieves listings from the Listing table and calculates the number of days each 
+-- listing has been available. It then filters the results to include only those listings with a number of days available 
+-- less than or equal to the value specified by the @maxDays parameter.
+CREATE OR ALTER PROCEDURE GetListingsByDaysAvailable
+    @maxDays INT
+AS
+BEGIN
+    DECLARE @currentDate DATE = GETDATE();
+    
+    SELECT *,
+           DATEDIFF(DAY, Listing_Date, @currentDate) AS Days_Available
+    FROM Listing
+    WHERE DATEDIFF(DAY, Listing_Date, @currentDate) <= @maxDays 
+        AND DATEDIFF(DAY, Listing_Date, @currentDate) > 0;
+END;
+
+-- Demonstartion of stored procedure GetListingsByDaysAvailable
+EXEC GetListingsByDaysAvailable 100;

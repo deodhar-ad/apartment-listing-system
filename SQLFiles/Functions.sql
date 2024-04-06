@@ -1,7 +1,7 @@
 USE ApartmentListingSystem;
 GO
 
--- GetListerPropertyStats returns a table with various statistics related to the properties listed by a specific lister. 
+-- 1. GetListerPropertyStats returns a table with various statistics related to the properties listed by a specific lister. 
 -- It calculates the total number of properties listed, the count of active and inactive properties, the count of rental and sale properties, 
 -- as well as statistics such as maximum and minimum bedrooms, bathrooms, and area sizes.
 CREATE FUNCTION GetListerPropertyStats (@ListerID INTEGER)
@@ -30,7 +30,7 @@ RETURN (
 
 SELECT * from GetListerPropertyStats(6);
 
--- GetFullNameOfUser retrieves the full name of the user associated with the provided user ID by concatenating the 
+-- 2. GetFullNameOfUser retrieves the full name of the user associated with the provided user ID by concatenating the 
 -- First_Name and Last_Name columns from the [User] table
 CREATE OR ALTER FUNCTION GetFullNameOfUser(@UserID INTEGER)
 RETURNS VARCHAR(50)
@@ -48,7 +48,7 @@ END;
 SELECT *, dbo.GetFullNameOfUser(User_ID) AS Full_Name FROM [User];
 
 
--- GetTopRatedListers retrieves the top N listers based on their average rating and the number of active properties they have listed.
+-- 3. GetTopRatedListers retrieves the top N listers based on their average rating and the number of active properties they have listed.
 -- It orders the results by average rating and total active properties in descending order and returns the top N listers.
 CREATE OR ALTER FUNCTION GetTopRatedListers(@N INT)
 RETURNS TABLE
@@ -72,7 +72,7 @@ RETURN (
 SELECT * FROM dbo.GetTopRatedListers(12);
 
 
--- UDF that calculates the total cost of renting a property for a given duration, taking into account the monthly rent, move-in cost, and security deposit.
+-- 4. UDF that calculates the total cost of renting a property for a given duration, taking into account the monthly rent, move-in cost, and security deposit.
 --This UDF will take three parameters: Rent_ID (identifying the rental), DurationInMonths (the duration of the rental), and MoveInDate (the date when the rental begins).
 CREATE OR ALTER FUNCTION CalculateTotalRentCost (
     @RentID INTEGER,
@@ -108,7 +108,7 @@ SELECT dbo.CalculateTotalRentCost(@RentID, @DurationInMonths, @MoveInDate) AS To
 
 -- UDF Computed Column functions
 
---Computed Column for Lister Activity Status
+-- 5. Computed Column for Lister Activity Status
 --UDF to determine the activity status of a Lister based on their number of active properties:
 -- Created a UDF to determine Lister activity status
 CREATE OR ALTER FUNCTION DetermineListerActivityStatus

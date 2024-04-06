@@ -1,7 +1,7 @@
 USE ApartmentListingSystem;
 GO
 
--- Active Properties with Details
+-- 1. Active Properties with Details
 CREATE VIEW ActivePropertyDetails AS
     SELECT
         P.Property_ID,
@@ -31,7 +31,7 @@ CREATE VIEW ActivePropertyDetails AS
 select * from ActivePropertyDetails;
 
 
--- Customer Messages with Property Details
+-- 2. Customer Messages with Property Details
 CREATE VIEW CustomerPropertyMessages AS
     SELECT
         M.Message_ID,
@@ -52,7 +52,7 @@ CREATE VIEW CustomerPropertyMessages AS
 Select * from CustomerPropertyMessages;
 
 	
---Property Details with Amenities
+-- 3. Property Details with Amenities
 CREATE VIEW Property_Amenities AS
     SELECT
         P.Property_ID,
@@ -82,7 +82,7 @@ CREATE VIEW Property_Amenities AS
 select * from Property_Amenities
 
 
---Customer Reviews and Ratings
+-- 4. Customer Reviews and Ratings
 CREATE VIEW Customer_Reviews AS
     SELECT
         R.Review_ID,
@@ -112,7 +112,7 @@ CREATE VIEW Customer_Reviews AS
 select * from Customer_Reviews
 
 
---Properties Available for Selling
+-- 5. Properties Available for Selling
 CREATE VIEW Properties_For_Sale AS
     SELECT
         P.Property_ID,
