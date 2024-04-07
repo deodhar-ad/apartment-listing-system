@@ -28,6 +28,7 @@ RETURN (
     WHERE p.Lister_ID = @ListerID
 );
 
+--- to test the function
 SELECT * from GetListerPropertyStats(6);
 
 -- 2. GetFullNameOfUser retrieves the full name of the user associated with the provided user ID by concatenating the 
@@ -45,6 +46,7 @@ BEGIN
     RETURN @FullName;
 END;
 
+--- to test the function
 SELECT *, dbo.GetFullNameOfUser(User_ID) AS Full_Name FROM [User];
 
 
@@ -69,6 +71,7 @@ RETURN (
     ORDER BY Average_Rating DESC, Total_Active_Properties DESC
 );
 
+--- to test the function
 SELECT * FROM dbo.GetTopRatedListers(12);
 
 
@@ -99,9 +102,10 @@ BEGIN
     RETURN @TotalCost;
 END;
 
-DECLARE @RentID INTEGER = 1; -- Provide the Rent ID
-DECLARE @DurationInMonths INTEGER = 6; -- Duration in months
-DECLARE @MoveInDate DATETIME = '2024-04-01'; -- Move in date
+--- to test the function
+DECLARE @RentID INTEGER = 15; -- Provide the Rent ID
+DECLARE @DurationInMonths INTEGER = 12; -- Duration in months
+DECLARE @MoveInDate DATETIME = '2024-09-01'; -- Move in date
  
 SELECT dbo.CalculateTotalRentCost(@RentID, @DurationInMonths, @MoveInDate) AS TotalCost;
 
@@ -144,7 +148,7 @@ GO
     on the satisfaction level and feedback volume of properties in each neighborhood.
 */
 
-CREATE FUNCTION CalculateNeighborhoodScore
+CREATE OR ALTER FUNCTION CalculateNeighborhoodScore
 (
     @Zipcode INTEGER
 )
@@ -154,7 +158,7 @@ RETURN
 (
     SELECT 
         P.Zipcode,
-        AVG(R.Rating) AS AvgRating,
+        ROUND(AVG(R.Rating),2) AS AvgRating,
         COUNT(R.Review_ID) AS NumReviews
     FROM 
         Property P
@@ -167,5 +171,13 @@ RETURN
 );
 
 --- to test the function
-
-SELECT * from dbo.CalculateNeighborhoodScore(10001);
+SELECT 
+    p.Zipcode,
+    p.[City],
+    p.[State],
+    d.AvgRating,
+    d.NumReviews
+FROM 
+    Property p
+CROSS APPLY 
+    dbo.CalculateNeighborhoodScore(p.Zipcode) d;
