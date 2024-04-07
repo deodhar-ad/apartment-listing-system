@@ -133,3 +133,15 @@ SELECT
 
 -- Demonstartion of view CustomerTransactionSummary
 SELECT * from CustomerTransactionSummary
+
+-- 6. User Analysis view for the data visulization to see diiferent types of User in the System.
+CREATE OR ALTER VIEW UserSummary AS
+    SELECT
+        (SELECT COUNT(*) FROM [User]) AS TotalUsers,
+        (SELECT COUNT(DISTINCT Lister_ID) FROM Lister Where Lister_Type='O') As Owners,
+        (SELECT COUNT(DISTINCT Lister_ID) FROM Lister Where Lister_Type='B') As Buyers,
+        (SELECT COUNT(DISTINCT Customer_ID) FROM Customer Where Customer_Type='Rent') As RenterCustomers,
+        (SELECT COUNT(DISTINCT Customer_ID) FROM Customer Where Customer_Type='Sell') As BuyingCustomers;
+
+-- Demonstartion of view UserSummary
+SELECT * from UserSummary;
