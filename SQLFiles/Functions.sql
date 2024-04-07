@@ -137,3 +137,35 @@ ALTER TABLE Lister
 ADD Activity_Status AS dbo.DetermineListerActivityStatus(Lister_ID);
 GO
 
+/*
+    This user-defined SQL function, CalculateNeighborhoodScore, returns a table with computed columns 
+    for the average rating and the total number of reviews for properties within a specified zipcode. 
+    By executing this function and analyzing the results, users can visualize popular locations based 
+    on the satisfaction level and feedback volume of properties in each neighborhood.
+*/
+
+CREATE FUNCTION CalculateNeighborhoodScore
+(
+    @Zipcode INTEGER
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT 
+        P.Zipcode,
+        AVG(R.Rating) AS AvgRating,
+        COUNT(R.Review_ID) AS NumReviews
+    FROM 
+        Property P
+    INNER JOIN 
+        Review R ON P.Property_ID = R.Property_ID
+    WHERE 
+        P.Zipcode = @Zipcode
+    GROUP BY 
+        P.Zipcode
+);
+
+--- to test the function
+
+SELECT * from dbo.CalculateNeighborhoodScore(10001);
