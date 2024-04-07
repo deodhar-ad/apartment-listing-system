@@ -1,4 +1,4 @@
-USE ApartmentListingSystem;
+USE ApartmentFinder;
 GO
 
 -- 1. GetListerPropertyStats returns a table with various statistics related to the properties listed by a specific lister. 

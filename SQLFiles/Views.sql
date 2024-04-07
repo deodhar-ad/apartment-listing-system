@@ -1,4 +1,4 @@
-USE ApartmentListingSystem;
+USE ApartmentFinder;
 GO
 
 -- 1. Active Properties with Details

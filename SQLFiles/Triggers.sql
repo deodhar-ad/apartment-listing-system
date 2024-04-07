@@ -1,4 +1,4 @@
-USE ApartmentListingSystem;
+USE ApartmentFinder;
 GO
 
 -- 1. Trigger that automatically updates the Active_Properties column in the Lister table whenever 

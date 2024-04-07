@@ -1,4 +1,4 @@
-USE ApartmentListingSystem;
+USE ApartmentFinder;
 GO
 
 -- 1. GetCustomerTransactions - This procedure retrieves rent or sell transactions for a given customer. It first 

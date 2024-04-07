@@ -1,4 +1,4 @@
-USE ApartmentListingSystem;
+USE ApartmentFinder;
 GO
 
 -- Index on Lister table for Lister_Type

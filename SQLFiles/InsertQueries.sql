@@ -1,4 +1,4 @@
-Use ApartmentListingSystem;
+Use ApartmentFinder;
 Go
 
 -- Inserting into [User] table
