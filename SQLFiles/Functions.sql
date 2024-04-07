@@ -172,12 +172,16 @@ RETURN
 
 --- to test the function
 SELECT 
-    p.Zipcode,
+    DISTINCT p.Zipcode,
     p.[City],
     p.[State],
     d.AvgRating,
-    d.NumReviews
+    d.NumReviews,
+    COUNT(*) AS NoOfProperties
 FROM 
     Property p
 CROSS APPLY 
-    dbo.CalculateNeighborhoodScore(p.Zipcode) d;
+    dbo.CalculateNeighborhoodScore(p.Zipcode) d
+    GROUP BY p.Zipcode, p.[City], p.[State], d.AvgRating, d.NumReviews;
+
+
