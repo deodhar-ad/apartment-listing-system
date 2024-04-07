@@ -8,9 +8,10 @@ CREATE TABLE [User] (
   User_ID INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY, 
   First_Name VARCHAR(50) NOT NULL, 
   Last_Name VARCHAR(50) NOT NULL, 
-  Phone_No BIGINT NOT NULL, 
+  Phone_No BIGINT, 
   Email VARCHAR(100) NOT NULL, 
   Date_Of_Birth DATE NOT NULL, 
+  Encrypted_Phone_No VARBINARY(MAX),
 --   User types : L (Lister), C (Customer)
   User_Type CHAR(1) NOT NULL 
   -- CONSTRAINT User_Type_CHK CHECK (
