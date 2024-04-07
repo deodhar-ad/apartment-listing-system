@@ -29,30 +29,9 @@ CREATE VIEW ActivePropertyDetails AS
 
 -- Demonstartion of view ActivePropertyDetails
 select * from ActivePropertyDetails;
-
-
--- 2. Customer Messages with Property Details
-CREATE VIEW CustomerPropertyMessages AS
-    SELECT
-        M.Message_ID,
-        M.Customer_ID,
-        M.Lister_ID,
-        M.Subject,
-        M.Content,
-        P.Address_Line_1,
-        P.City,
-        P.State,
-        P.Zipcode
-    FROM
-        [Message] AS M
-    JOIN
-        Property AS P ON M.Lister_ID = P.Lister_ID;
-
--- Demonstartion of view CustomerPropertyMessages
-Select * from CustomerPropertyMessages;
-
 	
--- 3. Property Details with Amenities
+
+-- 2. Property Details with Amenities
 CREATE VIEW Property_Amenities AS
     SELECT
         P.Property_ID,
@@ -82,7 +61,7 @@ CREATE VIEW Property_Amenities AS
 select * from Property_Amenities
 
 
--- 4. Customer Reviews and Ratings
+-- 3. Customer Reviews and Ratings
 CREATE VIEW Customer_Reviews AS
     SELECT
         R.Review_ID,
@@ -112,7 +91,7 @@ CREATE VIEW Customer_Reviews AS
 select * from Customer_Reviews
 
 
--- 5. Properties Available for Selling
+-- 4. Properties Available for Selling
 CREATE VIEW Properties_For_Sale AS
     SELECT
         P.Property_ID,
