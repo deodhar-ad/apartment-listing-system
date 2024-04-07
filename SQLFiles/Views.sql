@@ -120,3 +120,16 @@ CREATE VIEW Properties_For_Sale AS
 Select * from Properties_For_Sale
 
 
+-- 5. View that includes the total number of registered customers, the number of customers who have rent transactions, 
+-- the number of customers who have sell transactions, and the number of inactive customers (those who haven't engaged in any transactions)
+CREATE VIEW CustomerTransactionSummary AS
+SELECT
+    (SELECT COUNT(*) FROM Customer) AS Total_Customers,
+    (SELECT COUNT(DISTINCT Customer_ID) FROM Rent_Transaction) AS Customers_With_Rent_Transaction,
+    (SELECT COUNT(DISTINCT Customer_ID) FROM Sell_Transaction) AS Customers_With_Sell_Transaction,
+    (SELECT COUNT(*) FROM Customer) - 
+        (SELECT COUNT(DISTINCT Customer_ID) FROM Rent_Transaction) - 
+        (SELECT COUNT(DISTINCT Customer_ID) FROM Sell_Transaction) AS Inactive_Customers;
+
+-- Demonstartion of view CustomerTransactionSummary
+SELECT * from CustomerTransactionSummary

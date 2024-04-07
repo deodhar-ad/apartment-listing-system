@@ -141,13 +141,36 @@ ALTER TABLE Lister
 ADD Activity_Status AS dbo.DetermineListerActivityStatus(Lister_ID);
 GO
 
-/*
-    This user-defined SQL function, CalculateNeighborhoodScore, returns a table with computed columns 
-    for the average rating and the total number of reviews for properties within a specified zipcode. 
-    By executing this function and analyzing the results, users can visualize popular locations based 
-    on the satisfaction level and feedback volume of properties in each neighborhood.
-*/
+-- 6. customer satisfaction score based on the reviews given by customer
+CREATE FUNCTION dbo.GetCustomerSatisfactionScore
+(
+    @CustomerID INT
+)
+RETURNS DECIMAL(10, 2)
+AS
+BEGIN
+    DECLARE @SatisfactionScore DECIMAL(10, 2);
+ 
+    SELECT @SatisfactionScore = (
+        SELECT (AVG(Rating) * 0.8) + (COUNT(*) * 0.2)
+        FROM Review
+        WHERE Customer_ID = @CustomerID
+    );
+ 
+    RETURN @SatisfactionScore;
+END;
+GO
+ 
+-- Add a computed column to the Customer table for Satisfaction_Score
+ALTER TABLE Customer
+ADD Satisfaction_Score AS dbo.GetCustomerSatisfactionScore(Customer_ID);
+GO
 
+
+-- 7. This user-defined SQL function, CalculateNeighborhoodScore, returns a table with computed columns 
+-- for the average rating and the total number of reviews for properties within a specified zipcode. 
+-- By executing this function and analyzing the results, users can visualize popular locations based 
+-- on the satisfaction level and feedback volume of properties in each neighborhood.
 CREATE OR ALTER FUNCTION CalculateNeighborhoodScore
 (
     @Zipcode INTEGER
